@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+<div>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="btn btn-dark" href="/" float="margin-right">Home</a>
+        <a class="btn btn-dark" href="/login" float="margin-right">Login</a>
+        <a class="btn btn-dark" href="/register" float="margin-right">Register</a>
+    </nav>
+</div>
+
+
+<div  style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-top: 70px;font-size: 20px; background-image: image();>
+   
+   <img style="float:right;width:270px;height:200px;margin-right: 5%;"  src="{{ url_for('static', filename='rating.jpg')}}" alt="Search" class="image">
+    <p style="float: left; margin-left: 20%; font-size: 80px; color: white;">Welcome to Good Reads</p><br>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@300&display=swap" rel="stylesheet">
+</div>
+{% endblock %}

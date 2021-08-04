@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+<!-- {% block heading %}
+first LoginPage
+{% endblock %} -->
+
+{% block content %}
+<div>
+  <nav class="navbar navbar-dark bg-dark">
+      <a class="btn btn-success" href="/" float="margin-right">Home</a>
+      <a class="btn btn-success" href="/login" float="margin-right">Login</a>
+      <a class="btn btn-success" href="/register" float="margin-right">Register</a>
+      <a class="btn btn-danger" href="/logout" float="margin-right">Logout</a>
+  </nav>
+
+</div>
+
+
+<!-- <h4>Admin PAGE</h4> -->
+<div style="text-align: center;margin-left: 15%;margin-right: 15%;">
+    <h3>Admin details</h3><br>
+    <br>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" style="background-color:MediumSeaGreen;">Username</th>
+            <th scope="col" style="background-color:MediumSeaGreen;">E-mail</th>
+            <th scope="col" style="background-color:MediumSeaGreen;">Password</th>
+            <th scope="col" style="background-color:MediumSeaGreen;">Timestamp</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.timestamp}}</td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+</div>
+
+
+{% endblock %}
+

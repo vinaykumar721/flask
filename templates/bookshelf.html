@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+<!-- {% block heading %}
+first LoginPage
+{% endblock %} -->
+
+{% block content %}
+<div>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="btn btn-success" href="/" float="margin-right">Home</a>
+        <a class="btn btn-danger" href="/logout" float="margin-right">Logout</a>
+    </nav>
+</div>
+
+<div>
+  <h2>{{error}}</h2>
+</div>
+
+  <h4 style="color: white;">Book Shelf</h4>
+  <div style="text-align: center;margin-left: 15%;margin-right: 15%;">
+      <h3 style="color: white;">Added book details</h3><br>
+      <br>
+      <table class="table" >
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col" style="background-color:MediumSeaGreen;">Name</th>
+              <th scope="col" style="background-color:MediumSeaGreen;">ISBN</th>
+              <th scope="col" style="background-color:MediumSeaGreen;">TITLE OF BOOK</th>
+              <th scope="col" style="background-color:MediumSeaGreen;">AUTHOR</th>
+              <th scope="col" style="background-color:MediumSeaGreen;">YEAR</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            {% for Shelf in users %}
+            <tr>
+              <form action="{{url_for('bookshelf')}}" method="POST" >
+              <td  style="background-color: white;">{{Shelf.name}}</td>
+              <input type="hidden" name="name" value="{{Shelf.name}}">
+              <td style="background-color: white;" ><a href="{{ url_for('get_book_details',isbn = Shelf.isbn)}}">{{Shelf.isbn}}</a></td>
+              <input type="hidden" name="isbn" value="{{Shelf.isbn}}">
+
+              <td style="background-color: white;">{{Shelf.title}}</td>
+              <input type="hidden" name="title" value="{{Shelf.title}}">
+
+              <td style="background-color: white;">{{Shelf.author}}</td>
+              <input type="hidden" name="author" value="{{Shelf.author}}">
+
+              <td style="background-color: white;">{{Shelf.year}}</td>
+              <input type="hidden"name="year" value="{{Shelf.year}}">
+
+              
+            </form>
+            <td > <button class="btn btn-danger" type="submit" name="delete" >Delete</button></td>
+            </tr>
+            {% endfor %}
+            
+          </tbody>
+        </table>
+  </div>
+
+{% endblock %}
+

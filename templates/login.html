@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+<!-- {% block heading %}
+first LoginPage
+{% endblock %} -->
+
+{% block content %}
+<div>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="btn btn-success" href="/" float="margin-right">Home</a>
+        <!-- <a class="btn btn-success" href="/register" float="m
+            argin-right">Register</a> -->
+    </nav>
+</div>
+<div>
+        <h2>{{error}}</h2>
+</div>
+
+<div class="card" style="margin-left: 25% ;margin-right: 25%;">
+    <div class="card-body">
+        <div style="text-align: center;margin-top: 10%;">
+            <form class="form-signin" action="{{url_for('login')}}" method="POST">
+                <h2 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:black;" class="form-signin-heading">Please Login here...</h2><br>
+                <label for="inputUsername" class="sr-only" >Email</label>
+                <input style="width: 290px; text-align: center;margin-left:30%; border:solid green;" type="email" id="inputUsername" name="email" class="form-control" placeholder="Email" required autofocus><br><br>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input style="width: 290px; text-align: center;margin-left:30%; border:solid green;" type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                <br>
+                <button class="btn btn-success" type="submit">Login</button>
+            </form>
+            </div>
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+<!-- {% block heading %}
+first LoginPage
+{% endblock %} -->
+
+{% block content %}
+<div>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="btn btn-success" href="/bookshelf" >My-Shelf</a>
+        <a class="btn btn-danger" href="/logout" float="margin-right">Logout</a>
+    </nav>
+</div>
+
+
+<h4>Book Search Page</h4><br><br>
+<div style="text-align: center;margin-left: 15%;margin-right: 15%;">
+    <div>
+        <form class="example" action="/search"  method="POST">
+          <!-- <img style="float:left;width:270px;height:230px;"  src="{{ url_for('static', filename='booksearch.png')}}" alt="Search" class="image">
+          <img style="float:right;width:290px;height:230px;"  src="{{ url_for('static', filename='review.jpg')}}" alt="Search" class="image"> -->
+
+            <input style="width: 300px; margin: auto;" type="text" placeholder="Search.." name="search" class="form-control"required><br><br>
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+        <br>
+    </div>
+</div>
+<div>
+  <br>
+<div style="margin-left: 120px;margin-right: 120px; background-color: white;">
+  <div>
+    <!-- <form action="{{url_for('bookshelf')}}">
+      <button class="btn btn-primary" type="submit">My Shelf</button>
+    </form> -->
+  </div>
+  <br>
+        <table class="table table-hover" style="background-color: white;">
+            <thead class="thead-dark" style="margin: auto;">
+                
+                <th style="background-color:MediumSeaGreen;"><h5 >ISBN</h5></th>
+                <th style="background-color:MediumSeaGreen;"><h5 >TITLE OF BOOK</h5></th>
+                <th style="background-color:MediumSeaGreen;"><h5 >AUTHOR</h5></th>
+                <th style="background-color:MediumSeaGreen;"><h5 >YEAR</h5></th>
+              <tr>
+                <br>
+                <br>
+              </tr>
+            </thead>
+            <tbody style="background-color: white;">
+              {% for book in books %}
+              <tr style="background-color: white;">
+                    <td ><h4 style="color:MediumSeaGreen;"><a href="{{ url_for('get_book_details',isbn = book.isbn)}}" >{{book.isbn}}</a> </h4></td>
+                    <td ><h4 style="color:MediumSeaGreen;">{{book.title}}</h4></td>
+                    <td ><h4 style="color:MediumSeaGreen;">{{book.author}}</h4></td>
+                    <td ><h4 style="color:MediumSeaGreen;">{{book.year}}</h4></td>
+              {% endfor %}
+            </tr>
+              
+            </tbody>
+          </table>
+        </div>
+        <br>
+        <br>
+        
+    
+</div>
+
+
+{% endblock %}
+

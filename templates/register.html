@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+<!-- {% block heading %}
+first LoginPage
+{% endblock %} -->
+
+{% block content %}
+
+<div>
+    <nav class="navbar navbar-dark bg-dark">
+        <!-- <h5 class="text-white h4">
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+            <a href="/">Logout</a>
+        </h5> -->
+        <a class="btn btn-success" href="/" float="margin-right">Home</a>
+        <a class="btn btn-success" href="/login" float="margin-right">Login</a>
+        <!-- <a class="btn btn-danger" href="/register" float="margin-right">Register</a> -->
+        <!-- <a class="btn btn-danger" href="/logout" float="margin-right">Logout</a> -->
+    </nav>
+
+</div>
+
+<div>
+    <h2>{{error1}}</h2>
+    <h2>{{error2}}</h2>
+</div>
+
+<div>
+    {% if uname %}
+        <h2>{{uname}} ,You have registered successfully </h2>
+    {% endif %}
+</div>
+
+
+
+
+
+<!-- <div style="text-align: center;margin-top: 10%;">
+   
+</div> -->
+
+
+
+<div class="card" style="margin-left: 25% ;margin-right: 25%;">
+    <div class="card-body">
+        <div style="text-align: center;margin-top: 10%;">
+            <form class="form-signin" action="{{url_for('register')}}"  method="POST">
+                <h2 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;" class="form-signin-heading" >You can Register here</h2><br>
+                <label for="inputUsername"  class="sr-only">Username</label>
+                <input style="width: 290px; text-align: center;margin-left:28%; border:solid green;" type="text" id="inputUsername" name="uname" class="form-control" placeholder="Username" required autofocus><br>
+                <label for="inputEmail"  class="sr-only">Email address</label>
+                <input style="width: 290px; text-align: center;margin-left:28%; border:solid green;" type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus><br>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input style="width: 290px; text-align: center;margin-left:28%; border:solid green;" type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required><br>
+                <button class="btn btn-success" type="submit">Register</button>
+              </form>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}
+
